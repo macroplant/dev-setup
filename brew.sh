@@ -23,27 +23,27 @@ brew upgrade --all
 
 # Install GNU core utilities (those that come with OS X are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-brew install coreutils
-sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+# brew install coreutils
+# sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # Install some other useful utilities like `sponge`.
-brew install moreutils
+# brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew install findutils
+# brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed
+# brew install gnu-sed
 # Install Bash 4.
-brew install bash
-brew install bash-completion2
+# brew install bash
+# brew install bash-completion2
 # We installed the new shell, now we have to activate it
-echo "Adding the newly installed shell to the list of allowed shells"
+# echo "Adding the newly installed shell to the list of allowed shells"
 # Prompts for password
-sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+# sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
 # Change to the new shell, prompts for password
-chsh -s /usr/local/bin/bash
+# chsh -s /usr/local/bin/bash
 
 # Install `wget` with IRI support.
-brew install wget --with-iri
+# brew install wget --with-iri
 
 # Install RingoJS and Narwhal.
 # Note that the order in which these are installed is important;
@@ -55,6 +55,7 @@ brew install wget --with-iri
 brew install pyenv
 pyenv install 3.8.5
 pyenv global 3.8.5
+brew install pipenv
 # brew install python
 # brew install python3
 
@@ -63,6 +64,7 @@ brew install rvm
 rvm install 2.7.1
 rvm use default 2.7.1
 
+# gem install bundler
 # brew install ruby-build
 # brew install rbenv
 # LINE='eval "$(rbenv init -)"'
@@ -115,7 +117,8 @@ brew install git
 brew install git-lfs
 brew install git-flow
 brew install git-extras
-brew install hub
+# brew install hub
+brew install yarn
 brew install imagemagick --with-webp
 # brew install lua
 # brew install lynx
@@ -131,6 +134,21 @@ brew install imagemagick --with-webp
 # brew install zopfli
 # brew install pkg-config libffi
 # brew install pandoc
+brew install bash
+brew install brotli
+brew install cloc
+brew install docker
+brew install docker-compose
+brew install ghostscript
+brew install gh
+brew install mkcert
+brew install mysql
+brew install nvm
+brew install wget
+brew install stunnel
+brew install clamav
+brew install imagemagick
+
 
 # Lxml and Libxslt
 # brew install libxml2
@@ -165,6 +183,10 @@ brew cask install --appdir="/Applications" slack
 brew cask install --appdir="/Applications" 1password
 #brew cask install --appdir="/Applications" gimp
 #brew cask install --appdir="/Applications" inkscape
+brew cask install --appdir="/Applications" skitch
+brew cask install --appdir="/Applications" sketch
+brew cask install --appdir="/Applications" clamxav
+brew cask install --appdir="/Applications" zoom
 
 #Remove comment to install LaTeX distribution MacTeX
 #brew cask install --appdir="/Applications" mactex
