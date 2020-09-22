@@ -64,6 +64,15 @@ brew install rvm
 rvm install 2.7.1
 rvm use default 2.7.1
 
+brew install nvm
+
+# copy the following into .zshrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+nvm install 13
+
 # gem install bundler
 # brew install ruby-build
 # brew install rbenv
@@ -148,6 +157,7 @@ brew install wget
 brew install stunnel
 brew install clamav
 brew install imagemagick
+brew install jq
 
 
 # Lxml and Libxslt
@@ -178,6 +188,8 @@ brew cask install --appdir="/Applications" google-chrome
 # brew cask install --appdir="/Applications" firefox
 # brew cask install --appdir="/Applications" skype
 brew cask install --appdir="/Applications" slack
+brew cask install --appdir="/Applications" aws-vpn-client
+
 # brew cask install --appdir="/Applications" dropbox
 # brew cask install --appdir="/Applications" evernote
 brew cask install --appdir="/Applications" 1password

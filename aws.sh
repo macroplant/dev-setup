@@ -27,9 +27,11 @@ echo "See the pydata.sh script."
 # it will not be overwritten
 # mkvirtualenv py2-data
 # workon py2-data
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "/tmp/AWSCLIV2.pkg"
+sudo installer -pkg /tmp/AWSCLIV2.pkg -target /
 
 pipenv install boto
-pipenv install awscli
+# pipenv install awscli
 pipenv install s3cmd
 # pipenv install mrjob
 
