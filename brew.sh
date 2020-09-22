@@ -60,7 +60,8 @@ brew install pipenv
 # brew install python3
 
 # Install ruby-build and rbenv
-brew install rvm
+\curl -sSL https://get.rvm.io | bash -s stable
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 rvm install 2.7.1
 rvm use default 2.7.1
 
