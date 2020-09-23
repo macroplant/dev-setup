@@ -211,5 +211,11 @@ brew cask install --appdir="/Applications" zoom
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 # brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzip qlimagesize webpquicklook suspicious-package quicklookase qlvideo
 
+
+brew tap homebrew/services
+brew services start mysql
+brew services start stunnel
+brew services start redis
+
 # Remove outdated versions from the cellar.
 brew cleanup
