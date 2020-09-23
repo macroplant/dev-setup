@@ -159,7 +159,7 @@ brew install stunnel
 brew install clamav
 brew install imagemagick
 brew install jq
-
+brew install oh-my-zsh
 
 # Lxml and Libxslt
 # brew install libxml2
