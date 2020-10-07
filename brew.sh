@@ -160,6 +160,7 @@ brew install clamav
 brew install imagemagick
 brew install jq
 brew install oh-my-zsh
+brew install git-secret
 
 # Lxml and Libxslt
 # brew install libxml2
