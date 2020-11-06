@@ -1,29 +1,49 @@
 
 
-cd ~/Library/Fonts && {
-	wget 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf';
-	wget 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf';
-	wget 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf';
-	wget 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf';
-cd -; }
-
 cd ~ && {
+	brew tap homebrew/cask-fonts
+	brew install antigen
+
+	brew cask install font-meslo-nerd-font
+	brew cask install font-noto-nerd-font
+
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 	brew install romkatv/powerlevel10k/powerlevel10k
 	mv -f .zshrc .zshrc-old-1 2> /dev/null || true
 
 	p10k configure;
 
-	echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
-	echo '[[ -s ${HOME}/repos/dochub/.bash ]] && source ${HOME}/repos/dochub/.bash' >>! ~/.zshrc
-	echo '[[ -s ${HOME}/repos/iexplorer/.bash ]] && source ${HOME}/repos/iexplorer/.bash' >>! ~/.zshrc
-	echo '[[ -s ${HOME}/repos/macroplant-rails2/.bash ]] && source ${HOME}/repos/macroplant-rails2/.bash' >>! ~/.zshrc
+	echo "
+source $HOME/antigen.zsh
+export NVM_AUTO_USE=true
+antigen bundle aws
+antigen bundle brew
+antigen bundle ember-cli
+antigen bundle git
+antigen bundle github
+antigen bundle lukechilds/zsh-nvm
+antigen bundle node
+antigen bundle osx
+antigen bundle rails
+antigen bundle ruby
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
 
-	# Load pyenv automatically by appending
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+[[ -s ${HOME}/repos/dochub/.bash ]] && source ${HOME}/repos/dochub/.bash
+[[ -s ${HOME}/repos/iexplorer/.bash ]] && source ${HOME}/repos/iexplorer/.bash
+[[ -s ${HOME}/repos/macroplant-rails2/.bash ]] && source ${HOME}/repos/macroplant-rails2/.bash
+
+if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias ls='ls -G'
+alias ll='ls -lG'
+" >>! ~/.zshrc
 	echo 'eval "$(pyenv init -)"' >>! ~/.zshrc
 
-
-	# The next line updates PATH for the Google Cloud SDK.
-	echo "if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi" >>! ~/.zshrc
-	# The next line enables shell command completion for gcloud.
-	echo "if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/completion.zsh.inc'; fi" >>! ~/.zshrc
 cd -; }
