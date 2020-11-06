@@ -43,6 +43,9 @@ if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/co
 
 alias ls='ls -G'
 alias ll='ls -lG'
+
+nvm use --silent 2> /dev/null > /dev/null
+
 " >>! ~/.zshrc
 	echo 'eval "$(pyenv init -)"' >>! ~/.zshrc
 
