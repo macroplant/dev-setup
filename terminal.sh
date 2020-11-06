@@ -1,0 +1,22 @@
+
+
+cd ~/Library/Fonts && {
+	wget 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf';
+	wget 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf';
+	wget 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf';
+	wget 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf';
+cd -; }
+
+cd ~ && {
+	brew install romkatv/powerlevel10k/powerlevel10k
+	mv -f .zshrc .zshrc-old-1 2> /dev/null || true
+
+	p10k configure;
+
+	echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+	echo '[[ -s ${HOME}/repos/dochub/.bash ]] && source ${HOME}/repos/dochub/.bash' >>! ~/.zshrc
+	echo '[[ -s ${HOME}/repos/iexplorer/.bash ]] && source ${HOME}/repos/iexplorer/.bash' >>! ~/.zshrc
+	echo '[[ -s ${HOME}/repos/macroplant-rails2/.bash ]] && source ${HOME}/repos/macroplant-rails2/.bash' >>! ~/.zshrc
+cd -; }
+
+# grep -qxF 'include "/configs/projectname.conf"' ~/.zshrc ||
