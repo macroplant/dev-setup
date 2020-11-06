@@ -15,6 +15,8 @@ cd ~ && {
 	p10k configure;
 
 	echo "
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 source $HOME/antigen.zsh
 export NVM_AUTO_USE=true
 antigen bundle aws
@@ -30,10 +32,12 @@ antigen bundle ruby
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+antigen apply
+
 [[ -s ${HOME}/repos/dochub/.bash ]] && source ${HOME}/repos/dochub/.bash
 [[ -s ${HOME}/repos/iexplorer/.bash ]] && source ${HOME}/repos/iexplorer/.bash
 [[ -s ${HOME}/repos/macroplant-rails2/.bash ]] && source ${HOME}/repos/macroplant-rails2/.bash
